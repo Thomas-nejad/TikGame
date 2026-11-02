@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090a0f">
+  <meta name="description" content="One more scroll. One more game. Meet your new favorite way to play.">
+  <title>Loop — one more game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Loop home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>loop<span class="brand-dot">.</span></span>
+    </a>
+    <div class="topbar-center">
+      <span class="live-dot"></span>
+      <span>THE ENDLESS ARCADE</span>
+    </div>
+    <div class="search-popover" id="search-popover"><input id="game-search" type="search" placeholder="Search games or creators" aria-label="Search games or creators"></div>
+    <div class="topbar-actions">
+      <button class="icon-button search-toggle" aria-label="Search games" title="Search games">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.5 4.5"></path></svg>
+      </button>
+      <button class="daily-button" id="daily-button"><span class="sparkle">✳</span> Daily streak <strong>3</strong></button>
+      <button class="avatar" aria-label="Your profile">A</button>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <aside class="sidebar">
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#feed"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 10 8-6 8 6v9a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1z"></path></svg></span>For you<span class="nav-indicator"></span></a>
+        <a class="nav-link" href="#trending"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c4.2 0 7-2.7 7-6.1 0-2.8-1.6-4.3-4-6.9-.2 2-1.2 3-2.1 3.4C13.7 7.3 10.8 4 8.3 3 8.8 7.1 5 9.5 5 14.7 5 18.5 7.8 21 12 21z"></path></svg></span>Trending<span class="nav-tag">HOT</span></a>
+        <a class="nav-link" href="#following"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.8 20a6.2 6.2 0 0 1 12.4 0M16 5.2a3.5 3.5 0 0 1 0 6.7m1 2.2a6.2 6.2 0 0 1 4.2 5.9"></path></svg></span>Following</a>
+        <a class="nav-link" href="#leaderboard"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8m-4-4v4M5 4h14v4a7 7 0 0 1-14 0zm0 2H3v2a4 4 0 0 0 4 4m12-6h2v2a4 4 0 0 1-4 4"></path></svg></span>Leaderboard</a>
+      </nav>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-label">YOUR SPACE</div>
+      <a class="nav-link" href="#saved"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.8A1.8 1.8 0 0 1 7.8 3h8.4A1.8 1.8 0 0 1 18 4.8V21l-6-4-6 4z"></path></svg></span>Saved games</a>
+      <button class="nav-link invite-link" id="invite-button"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14m-7-7h14"></path></svg></span>Invite friends</button>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-card">
+        <div class="card-orb"></div>
+        <span class="sidebar-card-kicker">YOUR NEXT OBSESSION</span>
+        <strong>One more game.<br>Just one.</strong>
+        <span class="sidebar-card-foot">That's what we all say.</span>
+      </div>
+      <div class="sidebar-footer">About &nbsp;·&nbsp; Guidelines &nbsp;·&nbsp; Privacy<br><span>© 2026 Loop Arcade · Prototype</span></div>
+    </aside>
+
+    <main class="main-content" id="feed">
+      <div class="feed-toolbar">
+        <div class="feed-tabs" role="tablist" aria-label="Game feed">
+          <button class="feed-tab active" role="tab" aria-selected="true">For you</button>
+          <span class="tab-separator"></span>
+          <button class="feed-tab" role="tab" aria-selected="false">Following</button>
+        </div>
+        <div class="feed-hint"><span class="key-hint">↑</span><span class="key-hint">↓</span><span>to explore</span></div>
+      </div>
+
+      <section class="feed" id="game-feed" aria-label="Endless game feed" tabindex="0">
+        <article class="game-slide" data-game="tap">
+          <div class="game-art art-tap">
+            <div class="art-grain"></div>
+            <div class="art-spotlight"></div>
+            <div class="game-topline"><span class="category-pill"><span class="category-dot dot-pink"></span> REFLEX</span><span class="game-number">01 <span>/ 04</span></span></div>
+            <div class="game-center tap-game">
+              <div class="tap-instructions"><span class="eyebrow">HOW QUICK ARE YOU?</span><h2>Tap Rush</h2><p>Hit as many targets as you can<br>before the clock runs out.</p></div>
+              <div class="tap-board" aria-label="Tap the glowing targets">
+                <button class="tap-cell" aria-label="Target 1"></button><button class="tap-cell" aria-label="Target 2"></button><button class="tap-cell" aria-label="Target 3"></button>
+                <button class="tap-cell" aria-label="Target 4"></button><button class="tap-cell" aria-label="Target 5"></button><button class="tap-cell" aria-label="Target 6"></button>
+                <button class="tap-cell" aria-label="Target 7"></button><button class="tap-cell" aria-label="Target 8"></button><button class="tap-cell" aria-label="Target 9"></button>
+              </div>
+              <div class="tap-scoreline"><span><small>SCORE</small><strong class="tap-score">00</strong></span><span><small>TIME</small><strong class="tap-timer">15</strong></span></div>
+              <button class="play-button tap-start"><span>▶</span> Start playing</button>
+            </div>
+            <div class="game-caption"><span class="creator-avatar creator-pink">M</span><div><strong>@loop.arcade </strong><p>blink and you'll miss it. 👀 <span class="hashtag">#reflex</span></p></div></div>
+            <div class="round-badge"><span>✦</span> QUICK PLAY</div>
+          </div>
+          <div class="game-rail">
+            <button class="rail-action like-action" aria-label="Like this game"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 4.2-8.8 10-8.8 10s-8.8-5.8-8.8-10a4.8 4.8 0 0 1 8.8-2.6 4.8 4.8 0 0 1 8.8 2.6z"></path></svg></span><span class="rail-count">24.8k</span></button>
+            <button class="rail-action comment-action" aria-label="View comments"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-8 7.5 9 9 0 0 1-3.8-.8L4 20l1.5-3.8A7.3 7.3 0 0 1 4 11.5 7.5 7.5 0 0 1 12 4a7.5 7.5 0 0 1 8 7.5z"></path><path d="M8.5 12h.1m3.4 0h.1m3.4 0h.1"></path></svg></span><span class="rail-count">382</span></button>
+            <button class="rail-action save-action" aria-label="Save this game"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.8A1.8 1.8 0 0 1 7.8 3h8.4A1.8 1.8 0 0 1 18 4.8V21l-6-4-6 4z"></path></svg></span><span class="rail-count">Save</span></button>
+            <button class="rail-action share-action" aria-label="Share this game"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m-5 5 5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"></path></svg></span><span class="rail-count">Share</span></button>
+            <div class="creator-disc">M</div>
+          </div>
+        </article>
+
+        <article class="game-slide" data-game="memory">
+          <div class="game-art art-memory">
+            <div class="art-grain"></div><div class="game-topline"><span class="category-pill"><span class="category-dot dot-violet"></span> BRAIN TEASER</span><span class="game-number">02 <span>/ 04</span></span></div>
+            <div class="game-center memory-game">
+              <div class="memory-intro"><span class="eyebrow">FLIP. MATCH. FLEX.</span><h2>Match Mode</h2><p>Find all 3 pairs in as few moves as you can.</p></div>
+              <div class="memory-board" aria-label="Memory card game"></div>
+              <div class="memory-stats"><span>MOVES <strong class="memory-moves">0</strong></span><span>PAIRS <strong class="memory-pairs">0/3</strong></span><button class="text-button memory-reset">↻ &nbsp;Reset</button></div>
+            </div>
+            <div class="game-caption"><span class="creator-avatar creator-violet">J</span><div><strong>@loop.arcade </strong><p>little brain break? 🧠 <span class="hashtag">#memory</span></p></div></div>
+            <div class="round-badge"><span>✦</span> QUICK PLAY</div>
+          </div>
+          <div class="game-rail">
+            <button class="rail-action like-action" aria-label="Like this game"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 4.2-8.8 10-8.8 10s-8.8-5.8-8.8-10a4.8 4.8 0 0 1 8.8-2.6 4.8 4.8 0 0 1 8.8 2.6z"></path></svg></span><span class="rail-count">12.1k</span></button>
+            <button class="rail-action comment-action" aria-label="View comments"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-8 7.5 9 9 0 0 1-3.8-.8L4 20l1.5-3.8A7.3 7.3 0 0 1 4 11.5 7.5 7.5 0 0 1 12 4a7.5 7.5 0 0 1 8 7.5z"></path><path d="M8.5 12h.1m3.4 0h.1m3.4 0h.1"></path></svg></span><span class="rail-count">96</span></button>
+            <button class="rail-action save-action" aria-label="Save this game"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.8A1.8 1.8 0 0 1 7.8 3h8.4A1.8 1.8 0 0 1 18 4.8V21l-6-4-6 4z"></path></svg></span><span class="rail-count">Save</span></button>
+            <button class="rail-action share-action" aria-label="Share this game"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m-5 5 5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"></path></svg></span><span class="rail-count">Share</span></button><div class="creator-disc disc-violet">J</div>
+          </div>
+        </article>
+
+        <article class="game-slide" data-game="color">
+          <div class="game-art art-color">
+            <div class="art-grain"></div><div class="game-topline"><span class="category-pill"><span class="category-dot dot-lime"></span> COLOR SPRINT</span><span class="game-number">03 <span>/ 04</span></span></div>
+            <div class="game-center color-game">
+              <div class="color-intro"><span class="eyebrow">TRUST YOUR GUT</span><h2>Color Clash</h2><p>Pick the color of the word. Not what it says.</p></div>
+              <div class="color-panel"><span class="color-timer-label">TIME LEFT <strong class="color-timer">20</strong></span><div class="color-word">READY?</div><div class="color-options"></div><span class="color-score-label">SCORE <strong class="color-score">0</strong></span></div>
+              <button class="play-button color-start">Start playing <span>→</span></button>
+            </div>
+            <div class="game-caption"><span class="creator-avatar creator-lime">K</span><div><strong>@loop.arcade </strong><p>words are overrated anyway. <span class="hashtag">#colorsprint</span></p></div></div>
+            <div class="round-badge"><span>✦</span> QUICK PLAY</div>
+          </div>
+          <div class="game-rail">
+            <button class="rail-action like-action" aria-label="Like this game"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 4.2-8.8 10-8.8 10s-8.8-5.8-8.8-10a4.8 4.8 0 0 1 8.8-2.6 4.8 4.8 0 0 1 8.8 2.6z"></path></svg></span><span class="rail-count">8,420</span></button>
+            <button class="rail-action comment-action" aria-label="View comments"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-8 7.5 9 9 0 0 1-3.8-.8L4 20l1.5-3.8A7.3 7.3 0 0 1 4 11.5 7.5 7.5 0 0 1 12 4a7.5 7.5 0 0 1 8 7.5z"></path><path d="M8.5 12h.1m3.4 0h.1m3.4 0h.1"></path></svg></span><span class="rail-count">74</span></button>
+            <button class="rail-action save-action" aria-label="Save this game"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.8A1.8 1.8 0 0 1 7.8 3h8.4A1.8 1.8 0 0 1 18 4.8V21l-6-4-6 4z"></path></svg></span><span class="rail-count">Save</span></button>
+            <button class="rail-action share-action" aria-label="Share this game"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m-5 5 5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"></path></svg></span><span class="rail-count">Share</span></button><div class="creator-disc disc-lime">K</div>
+          </div>
+        </article>
+
+        <article class="game-slide" data-game="lane">
+          <div class="game-art art-lane">
+            <div class="art-grain"></div><div class="game-topline"><span class="category-pill"><span class="category-dot dot-blue"></span> ARCADE</span><span class="game-number">04 <span>/ 04</span></span></div>
+            <div class="game-center lane-game">
+              <div class="lane-intro"><span class="eyebrow">DON'T GET CAUGHT</span><h2>Neon Escape</h2><p>Dodge the blocks. How long can you last?</p></div>
+              <div class="lane-arena"><div class="lane-score">SCORE <strong class="lane-score-value">0</strong></div><div class="lane-lines"><i></i><i></i></div><div class="lane-obstacles"></div><button class="player-dot" aria-label="Move player left or right"></button><div class="lane-start"><span>← &nbsp;→</span><small>USE ARROW KEYS OR TAP LANES</small></div></div>
+              <button class="play-button lane-start-button">Start playing <span>→</span></button>
+            </div>
+            <div class="game-caption"><span class="creator-avatar creator-blue">R</span><div><strong>@loop.arcade </strong><p>find your rhythm. beat your best. <span class="hashtag">#neonescape</span></p></div></div>
+            <div class="round-badge"><span>✦</span> QUICK PLAY</div>
+          </div>
+          <div class="game-rail">
+            <button class="rail-action like-action" aria-label="Like this game"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 4.2-8.8 10-8.8 10s-8.8-5.8-8.8-10a4.8 4.8 0 0 1 8.8-2.6 4.8 4.8 0 0 1 8.8 2.6z"></path></svg></span><span class="rail-count">19.3k</span></button>
+            <button class="rail-action comment-action" aria-label="View comments"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-8 7.5 9 9 0 0 1-3.8-.8L4 20l1.5-3.8A7.3 7.3 0 0 1 4 11.5 7.5 7.5 0 0 1 12 4a7.5 7.5 0 0 1 8 7.5z"></path><path d="M8.5 12h.1m3.4 0h.1m3.4 0h.1"></path></svg></span><span class="rail-count">215</span></button>
+            <button class="rail-action save-action" aria-label="Save this game"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.8A1.8 1.8 0 0 1 7.8 3h8.4A1.8 1.8 0 0 1 18 4.8V21l-6-4-6 4z"></path></svg></span><span class="rail-count">Save</span></button>
+            <button class="rail-action share-action" aria-label="Share this game"><span class="rail-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m-5 5 5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"></path></svg></span><span class="rail-count">Share</span></button><div class="creator-disc disc-blue">R</div>
+          </div>
+        </article>
+      </section>
+      <div class="scroll-controls"><button id="prev-game" aria-label="Previous game">↑</button><button id="next-game" aria-label="Next game">↓</button></div>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
