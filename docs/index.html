@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101217">
+  <meta name="description" content="A little break. A new high score. Six instant mini-games, one playful arcade.">
+  <title>Loop — little games, big energy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#" aria-label="Loop home"><span class="brand-symbol">↬</span>loop<span class="brand-period">.</span></a>
+    <div class="side-label">YOUR LITTLE ESCAPE</div>
+    <nav class="side-nav" aria-label="Main navigation">
+      <button class="nav-item active" data-view="play"><span>▷</span> Let's play <i>06</i></button>
+      <button class="nav-item" data-view="library"><span>▦</span> All games</button>
+      <button class="nav-item" data-view="saved"><span>♡</span> Saved games</button>
+      <button class="nav-item" data-view="records"><span>⌁</span> My records</button>
+    </nav>
+    <div class="side-note"><span class="note-star">✳</span><strong>Small games.<br>Good breaks.</strong><p>No downloads. No account.<br>Just a little play.</p></div>
+    <div class="side-bottom"><span class="status-dot"></span> MADE FOR YOUR BREAK<br><small>Loop Arcade · 2026</small></div>
+  </aside>
+  <div class="page">
+    <header class="topbar"><a class="brand mobile-brand" href="#" aria-label="Loop home">↬ loop<span class="brand-period">.</span></a><span class="topline">LITTLE GAMES, BIG ENERGY <span>✦</span></span><div class="top-actions"><button class="quiet-button" id="open-search"><span aria-hidden="true">⌕</span> <span class="search-label">Find a game</span></button><button class="profile-button" data-view="records" aria-label="Open my records">You <span>↗</span></button></div></header>
+    <main>
+      <section class="page-intro"><div><div class="eyebrow">THE FIVE-MINUTE CLUB</div><h1>A little break.<br class="mobile-break"> A new high score<span>.</span></h1><p>Pick up. Play. Pass the challenge.</p></div><span class="intro-sticker" aria-hidden="true">100%<br><b>playable</b><span>✦</span></span></section>
+      <div class="workspace">
+        <section class="play-column" aria-label="Game player">
+          <div class="player-tabs"><button class="tab active" data-view="play">Your arcade</button><button class="tab" data-view="saved">Saved <span id="saved-count">0</span></button><span class="keyboard-hint">↑ ↓ to switch</span></div>
+          <article class="game-card" id="game-card" aria-label="Current game">
+            <div class="card-top swipe-zone"><span class="category" id="game-category"></span><span class="edition" id="game-edition"></span></div>
+            <div class="game-heading swipe-zone"><span class="game-kicker" id="game-kicker"></span><h2 id="game-title"></h2><p id="game-description"></p></div>
+            <div class="game-surface" id="game-surface" data-game-surface></div>
+            <div class="card-bottom swipe-zone"><span id="game-control-hint"></span><button class="save-button" id="save-game" aria-label="Save game" aria-pressed="false">♡ <span>Save</span></button></div>
+            <div class="pause-banner" id="pause-banner" hidden>Game paused <button id="resume-game">Resume →</button></div>
+          </article>
+          <div class="game-footer"><div class="game-credit"><span class="credit-icon">↬</span><div><strong>Loop originals</strong><span id="personal-best">Your next personal best awaits</span></div></div><button class="challenge-button" id="share-game">Challenge a friend <span>↗</span></button></div>
+          <div class="feed-navigation" aria-label="Switch games"><button id="previous-game" aria-label="Previous game">↑ <span>Previous</span></button><div class="feed-dots" id="feed-dots" aria-label="Choose game"></div><button class="next-button" id="next-game"><span>Next game</span> ↓</button></div>
+          <p class="feed-note">Scroll over the card or swipe its heading to explore. Last game? It loops.</p>
+        </section>
+        <aside class="discovery"><div class="discovery-title"><h2>Next in your loop</h2><span>↙</span></div><div id="next-list" class="next-list"></div><button class="browse-button" data-view="library">Explore all six games <span>↗</span></button><section class="daily-card"><span class="eyebrow">A LITTLE COMPETITION</span><div class="daily-art" aria-hidden="true">✳</div><h3>Same game.<br>Your rules.</h3><p>Send a score challenge.<br>See who comes out on top.</p><button id="daily-challenge">Try today's pick →</button></section><div class="privacy-note"><span>◎</span><p>Your records stay in this browser.<br>No public rankings. No pressure.</p></div></aside>
+      </div>
+    </main>
+    <footer class="page-footer"><span>BUILT FOR A GOOD BREAK.</span><span>Six games. Zero downloads. · <a href="privacy.html">Privacy</a></span></footer>
+  </div>
+  <nav class="mobile-nav" aria-label="Mobile navigation"><button class="active" data-view="play">▷ <span>Play</span></button><button data-view="library">▦ <span>Games</span></button><button data-view="saved">♡ <span>Saved</span></button><button data-view="records">⌁ <span>Records</span></button></nav>
+  <dialog id="collection-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><div><span class="eyebrow">YOUR CORNER OF LOOP</span><h2 id="dialog-title">All games</h2></div><button class="close-button" id="close-dialog" aria-label="Close panel">×</button></div><label class="search-box" id="search-box">⌕ <input type="search" id="game-search" placeholder="Search games or categories" aria-label="Search games or categories"></label><div id="collection-content"></div></dialog>
+  <dialog id="share-dialog" aria-labelledby="share-title"><div class="dialog-top"><h2 id="share-title">Pass the challenge</h2><button class="close-button" id="close-share" aria-label="Close share panel">×</button></div><p>Your link opens this game. Play a round first to include your best score.</p><input id="share-link" aria-label="Game challenge link" readonly><button class="primary" id="copy-share">Copy challenge link ↗</button><p class="small-print">Scores are friendly challenges, not verified competition results.</p></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
