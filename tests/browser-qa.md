@@ -19,3 +19,13 @@ Verified in Chrome against the local static preview:
 The phone viewport is browser emulation, not a physical-device touch test. Real-device swiping, assistive technology and broad browser compatibility remain to be checked. Challenge scores are not server-validated.
 
 Java compilation with `--release 17` passed using JDK 25.0.2. The Java preview server could not establish its loopback socket in the execution environment, so browser gameplay verification used the static frontend served by Node. Run `arcade.LoopServer` in IntelliJ for the normal Java preview.
+## Reviewed growth release — 3 November 2026
+
+- Completed-round streaks were tested in Chrome: starting a game did not increment the count, finishing a round did, and finishing another on the same day kept the count at one.
+- Native Share was offered on the test browser, and the existing copy-link option remained. No message was sent to another person and no OS share destination was selected.
+- The first /TikGame/ visit installed the offline shell. The preview server was then stopped; reloading the page and switching games still worked.
+- A new app-shell version was generated. The existing tab offered Update ready; Later preserved the current version, and Update and reload loaded the new one while preserving the streak.
+- The streak chip, install control and game layout were checked at a 320 × 740 viewport without horizontal overflow.
+- All 18 automated tests pass, including Berlin DST date boundaries, project-path scope, unrelated-cache preservation, offline fallback and explicit update activation.
+- The Java server compiles for Java 17. Starting Java from the execution tool still fails while establishing its internal loopback socket; frontend browser verification therefore used a Node static preview. Running the revised server from IntelliJ remains a separate check.
+- Actual iOS/Android home-screen installation, native OS sharing destinations and social-app link-preview rendering have not been verified on physical devices.
