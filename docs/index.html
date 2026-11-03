@@ -6,7 +6,24 @@
   <meta name="theme-color" content="#101217">
   <meta name="description" content="A little break. A new high score. Six instant mini-games, one playful arcade.">
   <title>Loop — little games, big energy</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Loop — little games, big energy">
+  <meta property="og:description" content="Six instant mini-games. Beat your best. Challenge a friend.">
+  <meta property="og:url" content="https://thomas-nejad.github.io/TikGame/">
+  <meta property="og:image" content="https://thomas-nejad.github.io/TikGame/social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Loop arcade — six instant games to play and share">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Loop — little games, big energy">
+  <meta name="twitter:description" content="Six instant mini-games. Beat your best. Challenge a friend.">
+  <meta name="twitter:image" content="https://thomas-nejad.github.io/TikGame/social-preview.png">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="growth.css">
 </head>
 <body>
   <aside class="sidebar">
@@ -49,5 +66,6 @@
   <dialog id="share-dialog" aria-labelledby="share-title"><div class="dialog-top"><h2 id="share-title">Pass the challenge</h2><button class="close-button" id="close-share" aria-label="Close share panel">×</button></div><p>Your link opens this game. Play a round first to include your best score.</p><input id="share-link" aria-label="Game challenge link" readonly><button class="primary" id="copy-share">Copy challenge link ↗</button><p class="small-print">Scores are friendly challenges, not verified competition results.</p></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="app.js"></script>
+  <script src="growth.js"></script>
 </body>
 </html>
