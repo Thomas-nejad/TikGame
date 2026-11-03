@@ -94,7 +94,7 @@ $$('.swipe-zone').forEach(zone=>{
   zone.addEventListener('touchcancel',()=>{swipe=null;},{passive:true});
 });
 document.addEventListener('keydown',event=>{
-  if(event.target.closest('input,textarea,[contenteditable=true]')||collectionDialog.open||shareDialog.open)return;
+  if(event.target.closest('input,textarea,[contenteditable=true]')||document.querySelector('dialog[open]'))return;
   if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();navigate(event.key==='ArrowDown'?1:-1);return;}
   if(event.key==='Escape'){controller?.pause();return;}
   if(event.code==='Space'&&event.target.closest('button'))return;
@@ -144,9 +144,9 @@ function baseGame(game, markup) {
     setScore(value){score=value;const label=$('[data-score]',surface);if(label)label.textContent=value;},
     setTime(value){const label=$('[data-time]',surface);if(label)label.textContent=value;},
     start(){if(status==='playing')return;surface.querySelector('.results')?.remove();status='playing';elapsed=0;last=0;score=0;api.setScore(0);$('#pause-banner').hidden=true;api.onStart?.();cancelAnimationFrame(frame);frame=requestAnimationFrame(tick);},
-    finish(message,customScore){if(status!=='playing')return;if(customScore!=null)api.setScore(customScore);status='over';cancelAnimationFrame(frame);const entry=progress[game.id],old=entry.best;const newBest=old==null||(game.lower?score<old:score>old);if(newBest)entry.best=score;entry.plays++;persist();refreshProgress();const result=document.createElement('div');result.className='results';result.innerHTML='<span class="result-kicker"></span><strong class="result-value"></strong><span class="result-message"></span><div class="result-buttons"><button class="primary replay">Play again ↻</button><button class="secondary challenge">Challenge ↗</button></div>';$('.result-kicker',result).textContent=newBest?'NEW PERSONAL BEST ✦':'NICE LITTLE RUN';$('.result-value',result).textContent=score;$('.result-message',result).textContent=message;$('.replay',result).onclick=()=>api.start();$('.challenge',result).onclick=share;surface.append(result);},
+    finish(message,customScore){if(status!=='playing')return;if(customScore!=null)api.setScore(customScore);status='over';cancelAnimationFrame(frame);const entry=progress[game.id],old=entry.best;const newBest=old==null||(game.lower?score<old:score>old);if(newBest)entry.best=score;entry.plays++;persist();refreshProgress();const result=document.createElement('div');result.className='results';result.innerHTML='<span class="result-kicker"></span><strong class="result-value"></strong><span class="result-message"></span><div class="result-buttons"><button class="primary replay">Play again ↻</button><button class="secondary challenge">Challenge ↗</button></div>';$('.result-kicker',result).textContent=newBest?'NEW PERSONAL BEST ✦':'NICE LITTLE RUN';$('.result-value',result).textContent=score;$('.result-message',result).textContent=message;$('.replay',result).onclick=()=>api.start();$('.challenge',result).onclick=share;surface.append(result);document.dispatchEvent(new CustomEvent('loop:round-complete',{detail:{gameId:game.id,score}}));},
     pause(){if(status!=='playing')return;status='paused';cancelAnimationFrame(frame);$('#pause-banner').hidden=false;},
-    resume(){if(status!=='paused'||document.hidden||collectionDialog.open||shareDialog.open)return;status='playing';last=0;$('#pause-banner').hidden=true;frame=requestAnimationFrame(tick);},
+    resume(){if(status!=='paused'||document.hidden||document.querySelector('dialog[open]'))return;status='playing';last=0;$('#pause-banner').hidden=true;frame=requestAnimationFrame(tick);},
     key(code){if(status==='paused'){api.resume();return;}if(status==='ready'&&code==='Space'){api.start();return;}if(status==='playing')api.onKey?.(code);},
     destroy(){status='destroyed';cancelAnimationFrame(frame);abort.abort();api.onDestroy?.();$('#pause-banner').hidden=true;}
   };
